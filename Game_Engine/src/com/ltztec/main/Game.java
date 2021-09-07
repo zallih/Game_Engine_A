@@ -13,11 +13,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import com.ltztec.entities.Enemy;
@@ -47,6 +50,11 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	public static List<Enemy> enemies;
 	public static List<Shoot> bullets;
 	
+	public int[] pixels;
+	public BufferedImage lightmap;
+	public int[] lightMapPixels;
+	public static int[] miniMapPixels;
+	
 	public static World world;
 	
 	public static Spritesheet spritesheet;
@@ -64,6 +72,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	
 	public static boolean saveGame = false;
 
+	public static BufferedImage miniMap;	
 	
 	public static Menu menu;
 	public static Pause pause;
@@ -86,9 +95,21 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		player = new Player(10,0,32,32, spritesheet.getSprite(0, 0, 32, 32)); 
 		entities.add(player);
 		world = new World("/level1.png");
-		
+	
 		menu = new Menu();
 		pause = new Pause();
+		
+		try {
+			lightmap = ImageIO.read(getClass().getResource("/lightmap.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		lightMapPixels = new int [lightmap.getWidth() * lightmap.getHeight()];
+		lightmap.getRGB(0, 0, lightmap.getWidth(), lightmap.getHeight(), lightMapPixels, 0, lightmap.getWidth());
+		pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
+		miniMap = new BufferedImage(World.WIDTH, World.HEIGHT,  BufferedImage.TYPE_INT_RGB);
+		miniMapPixels = ((DataBufferInt)miniMap.getRaster().getDataBuffer()).getData();
+		
 	}
 	
 	public synchronized void start() {
@@ -183,6 +204,19 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 			pause.tick();
 		}
 	}
+	
+	public void applyLight() {
+		/*
+		for(int xx = 0; xx < Game.WIDTH; xx++) {
+			for(int yy = 0; yy < Game.HEIGHT; yy++) {
+				if(lightMapPixels[xx+(yy * Game.WIDTH)] == 0xffffffff) {
+					pixels[xx+(yy * Game.WIDTH)] = 0;
+				}
+			}
+		}
+		*/
+	}
+	
 	public void render() {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null) {
@@ -212,6 +246,10 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		g.setFont(new Font("arial", Font.BOLD, 15));
 		g.setColor(Color.white);
 		g.drawString("Munição: " + player.ammo, 625,30);
+		
+		World.renderMiniMap();
+		g.drawImage(miniMap, 25, 450, 100, 100, null);
+		
 		if(gameState == "GAME_OVER") {
 			Graphics2D g2 = (Graphics2D) g;
 			g2.setColor(new Color(0,0,0, 225));
@@ -228,7 +266,8 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		else if(gameState == "PAUSE") {
 			pause.render(g);
 		}
-		 
+	
+		
 		bs.show();
 		
 
