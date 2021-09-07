@@ -60,33 +60,31 @@ public class World {
 						Game.entities.add(en);
 						Game.enemies.add(en);
 					}else if(pixelAtual == 0xFF778284) {
-						//Flower flor
+						//Flower flor1
 						tiles[xx + (yy * WIDTH)] = new FlowerTile(xx*32, yy*32,Tile.TILE_FLOWER);
 					}else if(pixelAtual == 0xFFD86D2F) {
-						//Flower flor
+						//Flower flor2
 						tiles[xx + (yy * WIDTH)] = new FlowerTile(xx*32, yy*32,Tile.TILE_FLOWER1);
 					}else if(pixelAtual == 0xFFFF7F7F) {
-						//Flower flor
+						//Flower flor3
 						tiles[xx + (yy * WIDTH)] = new FlowerTile(xx*32, yy*32,Tile.TILE_FLOWER2);
 					}else if(pixelAtual == 0xFF00BAFF) {
-						//Flower flor
+						//Flower flor4
 						tiles[xx + (yy * WIDTH)] = new FlowerTile(xx*32, yy*32,Tile.TILE_FLOWER3);
 					} else if(pixelAtual == 0xFFD4322B) {
-						// Flower flor
+						// Flower flor5
 						tiles[xx + (yy * WIDTH)] = new FlowerTile(xx*32, yy*32,Tile.TILE_FLOWER4);
-					}else if(pixelAtual == 0xFF00FF0C) {
+					}else if(pixelAtual == 0xFFFF0054) {
 						//House casa
 						House en = new House(xx*32,yy*32,127,127,Entity.HOUSE_EN);
 						Game.entities.add(en);
 					}else if(pixelAtual == 0xFFE100FF) {
-						//House casa
-						
+						//pack life 
 						HeartLife pack = new HeartLife(xx*32,yy*32,32,32,Entity.LIFE_EN);
 						Game.entities.add(pack);
 						pack.setMask(16, 16, 8, 8);
 					}else if(pixelAtual == 0xFF0F9BFF) {
 						//weapon arma
-						
 						Weapon en = new Weapon(xx*32,yy*32,32,32,Entity.WEAPON_EN);
 						Game.entities.add(en);
 						en.setMask(0, 0, 16, 16);

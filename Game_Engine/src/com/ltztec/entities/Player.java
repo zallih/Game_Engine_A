@@ -11,7 +11,7 @@ import com.ltztec.world.World;
 public class Player extends Entity{
 
 	public boolean right, left, up, down; 
-	public double speed = 1.3;
+	public double speed = 1.2;
 	
 	public int right_dir = 0, left_dir = 1, up_dir = 2, down_dir = 3;
 	public int dir = down_dir;
@@ -72,6 +72,7 @@ public class Player extends Entity{
 
 
 	public void tick() {
+		depth = 1;
 		moved = false;
 		if(right && World.isFree((int)(x+speed),this.getY())) {
 			moved = true;

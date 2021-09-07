@@ -3,6 +3,7 @@ package com.ltztec.entities;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.util.Comparator;
 import java.util.List;
 
 import com.ltztec.main.Game;
@@ -41,6 +42,8 @@ public class Entity {
 	protected int width;
 	protected int height;
 
+	
+	public int depth;
 
 	private int maskx, masky, mwidth, mheight;
 	
@@ -69,6 +72,22 @@ public class Entity {
 		this.mwidth = mwidth;
 		this.mheight = mheight;
 	}
+	
+	public static Comparator<Entity> nodeSorter = new Comparator<Entity>() {
+
+		@Override
+		public int compare(Entity n0, Entity n1) {
+
+			if (n1.depth < n0.depth)
+				return +1;
+			if (n1.depth > n0.depth)
+				return -1;
+
+			return 0;
+		}
+
+	};
+	
 	
 	public void setX(int newX) {
 		this.x = newX;

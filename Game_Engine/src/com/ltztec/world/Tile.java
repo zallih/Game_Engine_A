@@ -23,7 +23,7 @@ public class Tile {
 	public static BufferedImage TILE_FLOWER4 = Game.spritesheet.getSprite(64, 320, 32, 32);
 
 	
-	//public static BufferedImage TILE_HOUSE= Game.spritesheet.getSprite(0, 416, 127, 127);
+	public static BufferedImage TILE_HOUSE= Game.spritesheet.getSprite(0, 416, 127, 127);
 	
 	public static BufferedImage TILE_HOUSE2 = Game.spritesheet.getSprite(0, 288, 32, 32);
 	
