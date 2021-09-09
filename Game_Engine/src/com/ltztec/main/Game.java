@@ -3,10 +3,14 @@ package com.ltztec.main;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -79,7 +83,6 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	public static UI ui;
 	
 	public Game() {
-		Sound.musicBackground.play();
 		rand = new Random();
 		addKeyListener(this);
 		addMouseListener(this);
@@ -127,13 +130,29 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 	
 	public void initFrame() {
-		frame = new JFrame("Game #1");
+		frame = new JFrame("Game Engine");
 		frame.add(this);
 		frame.setResizable(false);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		
+		Image imagem= null;
+		try {
+			imagem = ImageIO.read(getClass().getResource("/icon.png"));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image image = toolkit.getImage(getClass().getResource("/cursor.png"));
+		Cursor c = toolkit.createCustomCursor(image, new Point(0, 0), "img");
+		frame.setCursor(c);
+		frame.setIconImage(imagem);
+		frame.setAlwaysOnTop(true);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		
 	}
 	
 	public static void main(String[]args) {
@@ -266,11 +285,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		else if(gameState == "PAUSE") {
 			pause.render(g);
 		}
-	
-		
 		bs.show();
-		
-
 		
 	} 
 	

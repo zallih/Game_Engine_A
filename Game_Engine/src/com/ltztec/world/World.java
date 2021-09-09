@@ -29,9 +29,6 @@ public class World {
 	
 	
 	public World (String path) {
-		
-		
-		
 		try {
 			BufferedImage map = ImageIO.read(getClass().getResource(path));
 			int[] pixels = new int[map.getWidth() * map.getHeight()];

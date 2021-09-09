@@ -254,7 +254,7 @@ public class Player extends Entity{
 				}
 			}  
 		}else {
-			Sound.hurtEffect.play();
+			Sound.hit.play();
 			if(dir == right_dir) {
 				g.drawImage(playerDamageRight, this.getX() - Camera.x, this.getY() - Camera.y, null);
 			}else if(dir == left_dir) {

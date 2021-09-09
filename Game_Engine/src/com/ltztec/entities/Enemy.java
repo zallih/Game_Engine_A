@@ -74,7 +74,7 @@ public class Enemy extends Entity {
 			return;
 		}
 		if (isDamage) {
-			Sound.hurtEffect.play();
+			Sound.hit.play();
 			this.damageFrames++;
 			if (this.damageFrames == 5) {
 				this.damageFrames = 0;

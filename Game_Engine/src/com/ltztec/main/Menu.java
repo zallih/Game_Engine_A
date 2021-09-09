@@ -50,6 +50,7 @@ public class Menu {
 			}
 		}
 		if(enter) {
+			Sound.music.loop();
 			enter=false;
 			if(options[currentOption] == "novo jogo") {
 				Game.gameState = "NORMAL";
