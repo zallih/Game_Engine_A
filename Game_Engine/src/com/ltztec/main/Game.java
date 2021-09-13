@@ -86,6 +86,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		rand = new Random();
 		addKeyListener(this);
 		addMouseListener(this);
+		//setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
 		setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		initFrame();
 		//inicialiazando objetos
@@ -132,6 +133,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	public void initFrame() {
 		frame = new JFrame("Game Engine");
 		frame.add(this);
+		//frame.setUndecorated(true);
 		frame.setResizable(false);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
@@ -229,7 +231,8 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		for(int xx = 0; xx < Game.WIDTH; xx++) {
 			for(int yy = 0; yy < Game.HEIGHT; yy++) {
 				if(lightMapPixels[xx+(yy * Game.WIDTH)] == 0xffffffff) {
-					pixels[xx+(yy * Game.WIDTH)] = 0;
+					int pixel = Pixel.getLightBlend(pixels[xx+yy*WIDTH], 0x808080, 0);
+					pixels[xx+(yy * Game.WIDTH)] = pixel;
 				}
 			}
 		}
@@ -261,14 +264,15 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		ui.render(g);
 		g.dispose();
 		g = bs.getDrawGraphics();
-		g.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
+		applyLight();
+
+		g.drawImage(image, 0, 0, WIDTH*SCALE, HEIGHT*SCALE, null);
 		g.setFont(new Font("arial", Font.BOLD, 15));
 		g.setColor(Color.white);
 		g.drawString("Munição: " + player.ammo, 625,30);
 		
 		World.renderMiniMap();
 		g.drawImage(miniMap, 25, 450, 100, 100, null);
-		
 		if(gameState == "GAME_OVER") {
 			Graphics2D g2 = (Graphics2D) g;
 			g2.setColor(new Color(0,0,0, 225));
@@ -362,6 +366,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 				pause.enter = true;
 			}
 		}
+		
 	}	
 
 
@@ -392,10 +397,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 			if(gameState == "NORMAL") {
 				Game.saveGame = true;	
 			}
-		
-		}
-		
-		
+		}		
 	}
 	
 	public void keyTyped(KeyEvent e) {
