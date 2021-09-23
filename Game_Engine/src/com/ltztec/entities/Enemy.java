@@ -32,53 +32,55 @@ public class Enemy extends Entity {
 
 	public void tick() {
 		depth = 0;
-		if (!isCollidingWithPlayer()) {
+		if(Game.npc.showMassage == false) {
+			if (!isCollidingWithPlayer()) {
+				if(path == null || path.size() == 0) {
+					Vector2i start = new Vector2i((int)(x/32),(int)(y/32));
+					Vector2i end = new Vector2i((int)(Game.player.x/32),(int)(Game.player.y/32));
+					path = AStar.findPath(Game.world, start, end);
+				}
+			}else {
+				// estamos colidindo
+				if (Game.rand.nextInt(100) < 10) {
+					Game.player.life -= Game.rand.nextInt(3);
+					Game.player.isDamage = true;
+				}
+			}
+			
 			if(path == null || path.size() == 0) {
-				Vector2i start = new Vector2i((int)(x/32),(int)(y/32));
-				Vector2i end = new Vector2i((int)(Game.player.x/32),(int)(Game.player.y/32));
+			
+				Vector2i start = new Vector2i((int)(x/32), (int)(y/32));
+				Vector2i end = new Vector2i((int)(Game.player.x / 32), (int)(Game.player.y/32));
 				path = AStar.findPath(Game.world, start, end);
 			}
-		}else {
-			// estamos colidindo
-			if (Game.rand.nextInt(100) < 10) {
-				Game.player.life -= Game.rand.nextInt(3);
-				Game.player.isDamage = true;
+			
+			if(new Random().nextInt(100) < 55)
+				followPath(path);
+			
+			
+			frames++;
+			if (frames == maxFrames) {
+				frames = 0;
+				index++;
+				if (index > maxIndex) {
+					index = 0;
+				}
+	
 			}
-		}
-		
-		if(path == null || path.size() == 0) {
-		
-			Vector2i start = new Vector2i((int)(x/32), (int)(y/32));
-			Vector2i end = new Vector2i((int)(Game.player.x / 32), (int)(Game.player.y/32));
-			path = AStar.findPath(Game.world, start, end);
-		}
-		
-		if(new Random().nextInt(100) < 55)
-			followPath(path);
-		
-		
-		frames++;
-		if (frames == maxFrames) {
-			frames = 0;
-			index++;
-			if (index > maxIndex) {
-				index = 0;
+	
+			this.collindingAmmo();
+	
+			if (life <= 0) {
+				this.destroySelf();
+				return;
 			}
-
-		}
-
-		this.collindingAmmo();
-
-		if (life <= 0) {
-			this.destroySelf();
-			return;
-		}
-		if (isDamage) {
-			Sound.hit.play();
-			this.damageFrames++;
-			if (this.damageFrames == 5) {
-				this.damageFrames = 0;
-				this.isDamage = false;
+			if (isDamage) {
+				Sound.hit.play();
+				this.damageFrames++;
+				if (this.damageFrames == 5) {
+					this.damageFrames = 0;
+					this.isDamage = false;
+				}
 			}
 		}
 	}

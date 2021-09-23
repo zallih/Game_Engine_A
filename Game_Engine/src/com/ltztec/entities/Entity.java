@@ -12,10 +12,12 @@ import com.ltztec.world.Node;
 import com.ltztec.world.Vector2i;
 
 public class Entity {
-	
-	
 
+	// vou entrar no cel 
+	
 	public static final BufferedImage AMMO_EN = Game.spritesheet.getSprite(64, 384, 32, 32);
+	
+	public static BufferedImage NPC_EN = Game.spritesheet.getSprite(64, 128, 32, 32);
 	
 	public static BufferedImage ENEMY_EN = Game.spritesheet.getSprite(0, 128, 32, 32);
 	
@@ -37,8 +39,8 @@ public class Entity {
 
 	
 
-	protected double x;
-	protected double y;
+	public double x;
+	public double y;
 	protected int width;
 	protected int height;
 

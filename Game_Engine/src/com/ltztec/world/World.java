@@ -51,6 +51,11 @@ public class World {
 						Game.player.setX(xx*32);
 						Game.player.setY(yy*32);
 						
+					}else if(pixelAtual == 0xFF519F96) {
+						//NPC
+						Game.npc.setX(xx*32);
+						Game.npc.setY(yy*32);
+						
 					}else if(pixelAtual == 0xFF00FF00) {
 						//Enemy
 						Enemy en = new Enemy(xx*32,yy*32,32,32,Entity.ENEMY_EN);

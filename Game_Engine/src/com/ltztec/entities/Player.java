@@ -27,6 +27,7 @@ public class Player extends Entity{
 	private BufferedImage playerDamageDown;
 	private BufferedImage playerDamageLeft;
 	private BufferedImage playerDamageRight;
+
 	
 	public double life = 100,  
 			      maxLife =100;
@@ -41,7 +42,8 @@ public class Player extends Entity{
 	public boolean shoot = false, mouseShoot = false;
 	
 	public int mx, my;
-	
+
+
 	
 	public Player(int x, int y, int width, int height, BufferedImage sprite) {
 		super(x, y, width, height, sprite);

@@ -29,6 +29,7 @@ import javax.swing.JFrame;
 
 import com.ltztec.entities.Enemy;
 import com.ltztec.entities.Entity;
+import com.ltztec.entities.Npc;
 import com.ltztec.entities.Player;
 import com.ltztec.entities.Shoot;
 import com.ltztec.graficos.Spritesheet;
@@ -64,6 +65,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	public static Spritesheet spritesheet;
 	
 	public static Player player;
+	public static Npc npc;
 	
 	public static Random rand;
 	
@@ -71,6 +73,14 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	private boolean showMessageGameOver = true;
 	
 	private boolean restartGame;
+	
+	//cutscene
+	public static int entry = 1;
+	public static int start = 2;
+	public static int playing = 3;
+	public static int state_scene = entry;
+	
+	public int timeScene = 0, maxTimeScene = 60 * 3;
 	
 	private int framesGameOver = 0;
 	
@@ -98,6 +108,10 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		spritesheet = new Spritesheet("/spritesheet.png");
 		player = new Player(10,0,32,32, spritesheet.getSprite(0, 0, 32, 32)); 
 		entities.add(player);
+		
+		npc = new Npc(32, 32, 32, 32, spritesheet.getSprite(64, 128, 32, 32));
+		entities.add(npc);
+		
 		world = new World("/level1.png");
 	
 		menu = new Menu();
@@ -175,13 +189,29 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 			}
 			
 			this.restartGame = false;
-			for(int i = 0; i < entities.size(); i++) {
-				Entity e = entities.get(i);
-				e.tick();
-			}
-			
-			for(int i = 0; i < bullets.size(); i++) {
-				bullets.get(i).tick();
+			if(Game.state_scene == Game.playing) {
+				for(int i = 0; i < entities.size(); i++) {
+					Entity e = entities.get(i);
+					e.tick();
+				}
+				
+				for(int i = 0; i < bullets.size(); i++) {
+					bullets.get(i).tick();
+				}
+			}else {
+				if(Game.state_scene == Game.entry) {
+					if(player.getX() < 100) {
+						//player.x++;
+					}else {
+						System.out.println("Entrada concluida");
+						Game.state_scene = Game.start;
+					}
+				} else if(Game.state_scene == Game.start) {
+					timeScene++;
+					if(this.timeScene == this.maxTimeScene) {
+						Game.state_scene = Game.playing;
+					}
+				}
 			}
 			
 			if(enemies.size()==0) {
@@ -289,9 +319,15 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		else if(gameState == "PAUSE") {
 			pause.render(g);
 		}
+		
+		if(Game.state_scene == Game.start) {
+			g.setColor(new Color(0,0,0, 225));
+			g.setFont(new Font("arial", Font.BOLD, 30));
+			g.drawString("O jogo vai começar!",  (WIDTH*SCALE) / 2 - 120,(HEIGHT*SCALE) /2 + 250);
+		}
 		bs.show();
 		
-	} 
+	}
 	
 	public void run() {
 		requestFocus();
@@ -322,7 +358,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		stop();
 	}
 
-
+	
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT ||
 			e.getKeyCode() == KeyEvent.VK_D) {
