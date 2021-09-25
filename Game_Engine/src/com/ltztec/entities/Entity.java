@@ -23,6 +23,8 @@ public class Entity {
 	
 	public static BufferedImage ENEMY_DAMAGE = Game.spritesheet.getSprite(64, 256, 32, 32);
 	
+	public static BufferedImage FENCE_EN = Game.spritesheet.getSprite(64, 288, 32, 32);
+	
 	public static BufferedImage HOUSE_EN = Game.spritesheet.getSprite(0, 416, 127, 127);
 	
 	public static BufferedImage LIFE_EN = Game.spritesheet.getSprite(0, 384, 32, 32);

@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import com.ltztec.entities.Ammo;
 import com.ltztec.entities.Enemy;
 import com.ltztec.entities.Entity;
+import com.ltztec.entities.Fence;
 import com.ltztec.entities.HeartLife;
 import com.ltztec.entities.House;
 import com.ltztec.entities.Player;
@@ -46,6 +47,12 @@ public class World {
 					}else if(pixelAtual == 0xFFFFFBFB) {
 						//Wall/Parede
 						tiles[xx + (yy * WIDTH)] = new WallTile(xx*32, yy*32,Tile.TILE_WALL);
+					}else if(pixelAtual == 0xFF42231D) {
+						//Fence cerca
+						Fence en = new Fence(xx*32,yy*32,32,32,Entity.FENCE_EN);
+						Game.entities.add(en);
+						en.setMask(0, 0, 32, 15);
+
 					}else if(pixelAtual == 0xFF31529C) {
 						//Player
 						Game.player.setX(xx*32);
@@ -84,7 +91,7 @@ public class World {
 						//pack life 
 						HeartLife pack = new HeartLife(xx*32,yy*32,32,32,Entity.LIFE_EN);
 						Game.entities.add(pack);
-						pack.setMask(16, 16, 8, 8);
+						pack.setMask(0, 0, 16, 16);
 					}else if(pixelAtual == 0xFF0F9BFF) {
 						//weapon arma
 						Weapon en = new Weapon(xx*32,yy*32,32,32,Entity.WEAPON_EN);
@@ -94,7 +101,7 @@ public class World {
 						//Ammo munição
 						Ammo en = new Ammo(xx*32,yy*32,32,32,Entity.AMMO_EN);
 						Game.entities.add(en);
-						en.setMask(0, 0, 8, 8);
+						en.setMask(0, 0, 16, 8);
 					}
 				}
 			}

@@ -11,7 +11,6 @@ public class Tile {
 	
 	public static BufferedImage TILE_WALL = Game.spritesheet.getSprite(32, 288, 32, 32);
 	
-	
 	public static BufferedImage TILE_FLOWER = Game.spritesheet.getSprite(0, 320, 32, 32);
 	
 	public static BufferedImage TILE_FLOWER1 = Game.spritesheet.getSprite(32, 320, 32, 32);

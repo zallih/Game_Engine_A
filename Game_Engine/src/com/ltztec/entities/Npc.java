@@ -23,12 +23,12 @@ public class Npc extends Entity	{
 	public Npc(int x, int y, int width, int height, BufferedImage sprite) {
 		super(x, y, width, height, sprite);
 		frases[0] = "Oii, Seja muito bem-vindo(a) ao meu jogo!  ";
-		frases[1] = "VocÃª tem que destruir os inimigos!  ";
-		frases[2] = "Para isso vocÃª tem que...  ";
-		frases[3] = "pegar a arma e as muniÃ§Ãµes...  ";
-		frases[4] = "para atirar aperte espaÃ§o...  ";
-		frases[5] = "Quando vocÃª derrota todos os inimigos...  ";
-		frases[6] = "vocÃª passa de fase...  ";
+		frases[1] = "Você tem que destruir os inimigos!  ";
+		frases[2] = "Para isso você tem que...  ";
+		frases[3] = "pegar a arma e as munições...  ";
+		frases[4] = "para atirar aperte espaço...  ";
+		frases[5] = "Quando você derrota todos os inimigos...  ";
+		frases[6] = "você passa de fase...  ";
 		frases[7] = "Divirta-se!  ";
 		
 	}
