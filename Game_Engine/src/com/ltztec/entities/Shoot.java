@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 
 import com.ltztec.main.Game;
 import com.ltztec.world.Camera;
+import com.ltztec.world.World;
 
 public class Shoot extends Entity{
 
@@ -22,8 +23,15 @@ public class Shoot extends Entity{
 	}
 	
 	public void tick() {
-		x+=dx*spd;
-		y+=dy*spd;
+		if(World.isFreeDynamic((int)(x+(dx*spd)),(int)(y+(dy*spd)), life, curLife)) {
+			x+=dx*spd;
+			y+=dy*spd;
+		}else {
+			Game.bullets.remove(this);
+			//World.generateParticle(2, (int)x, (int)y);
+			return;
+		}
+			
 		if(curLife == life) {
 			Game.bullets.remove(this);
 			return;

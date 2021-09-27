@@ -13,6 +13,7 @@ import com.ltztec.entities.Entity;
 import com.ltztec.entities.Fence;
 import com.ltztec.entities.HeartLife;
 import com.ltztec.entities.House;
+import com.ltztec.entities.Particle;
 import com.ltztec.entities.Player;
 import com.ltztec.entities.Weapon;
 import com.ltztec.graficos.Spritesheet;
@@ -110,6 +111,33 @@ public class World {
 			}
 	}
 	
+	public static void generateParticle(int amount, int x, int y) {
+		for(int i = 0; i < amount; i++) {
+			Game.entities.add(new Particle(x,y,1,1,null));
+		}
+	}
+	
+	public static boolean isFreeDynamic(int xnext,int ynext, int width, int height) {
+		int x1 = xnext / TILE_SIZE;
+		int y1 = ynext / TILE_SIZE;
+		
+		
+		int x2 = (xnext+width-1) / TILE_SIZE;
+		int y2 = ynext / TILE_SIZE;
+		
+		int x3 = xnext / TILE_SIZE;
+		int y3 = (ynext+height-1) / TILE_SIZE;
+		
+		int x4 = (xnext+width-1) / TILE_SIZE;
+		int y4 = (ynext+height-1) / TILE_SIZE;
+	
+		return !((tiles[x1+(y1*World.WIDTH)] instanceof WallTile) ||
+				(tiles[x2+(y2*World.WIDTH)] instanceof WallTile) ||
+				(tiles[x3+(y3*World.WIDTH)] instanceof WallTile) ||
+				(tiles[x4+(y4*World.WIDTH)] instanceof WallTile) );
+	}
+	
+	
 	public static boolean isFree(int xnext,int ynext) {
 		int x1 = xnext / TILE_SIZE;
 		int y1 = ynext / TILE_SIZE;
@@ -128,9 +156,6 @@ public class World {
 				(tiles[x2+(y2*World.WIDTH)] instanceof WallTile) ||
 				(tiles[x3+(y3*World.WIDTH)] instanceof WallTile) ||
 				(tiles[x4+(y4*World.WIDTH)] instanceof WallTile) );
-		
-		
-	
 	}
 	
 	public static void restarGame(String level) {

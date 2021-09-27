@@ -10,6 +10,7 @@ import com.ltztec.main.Sound;
 import com.ltztec.world.AStar;
 import com.ltztec.world.Camera;
 import com.ltztec.world.Vector2i;
+import com.ltztec.world.World;
 
 public class Enemy extends Entity {
 
@@ -75,6 +76,7 @@ public class Enemy extends Entity {
 				return;
 			}
 			if (isDamage) {
+				World.generateParticle(3, (int)x, (int)y);
 				Sound.hit.play();
 				this.damageFrames++;
 				if (this.damageFrames == 5) {
