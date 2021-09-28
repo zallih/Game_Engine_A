@@ -33,6 +33,7 @@ public class Tile {
 	private BufferedImage sprite;
 	private int x,y;
 	
+	public boolean show = false;
 	
 	public Tile(int x, int y,  BufferedImage sprite) {
 		this.x = x;
@@ -42,6 +43,8 @@ public class Tile {
 
 
 	public void render(Graphics g) {
-		g.drawImage(sprite, x - Camera.x, y - Camera.y, null);
+		//if(show == true) {
+			g.drawImage(sprite, x - Camera.x, y - Camera.y, null);
+		//}
 	}
 }

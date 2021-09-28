@@ -73,7 +73,25 @@ public class Player extends Entity{
 	}
 
 
+	public void revealMap() {
+		int xx = (int) x/32;
+		int yy = (int) y/32;
+		
+		World.tiles[xx-1+yy*World.WIDTH].show = true;
+		World.tiles[xx+yy*World.WIDTH].show = true;
+		World.tiles[xx-1+yy*World.WIDTH].show = true;
+
+		World.tiles[xx+((yy+1)*World.HEIGHT)].show = true;
+		World.tiles[xx+((yy-1)*World.HEIGHT)].show = true;
+		
+		World.tiles[xx+1+((yy+1)*World.WIDTH)].show = true;
+		World.tiles[xx-1+((yy-1)*World.WIDTH)].show = true;
+	} 
+	
 	public void tick() {
+		
+		//revealMap();
+		
 		depth = 1;
 		moved = false;
 		if(right && World.isFree((int)(x+speed),this.getY())) {
