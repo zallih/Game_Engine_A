@@ -179,7 +179,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	public void tick() {
 		Game.player.updateCamera();
 		if(gameState == "NORMAL") {
-			
+			Sound.music.loop();
 			if(Game.saveGame == true) {
 				Game.saveGame = false;
 				String[] opt1 = {"level"};

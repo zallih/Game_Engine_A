@@ -67,15 +67,7 @@ public class Npc extends Entity	{
 	
 	public void render(Graphics g) {
 		super.render(g);
-		if(showMassage == true) {
-			
-			g.setColor(Color.white);
-			g.fillRect(90, 240, 220, 30);
-			
-			g.setColor(Color.black);
-			g.setFont(new Font("Arial", Font.BOLD, 9));
-			g.drawString(frases[fraseIndex].substring(0, curIndexMsg), 103, 259);
-		}
+		
 	}
 
 }

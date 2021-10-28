@@ -14,7 +14,9 @@ import com.ltztec.world.World;
 
 public class Enemy extends Entity {
 
+	
 	private double speed = 0.5;
+	
 	private int maskx = 2, masky = 2, maskw = 16, maskh = 16;
 	private int frames = 0, maxFrames = 30, index = 0, maxIndex = 1;
 	private BufferedImage[] sprites;
