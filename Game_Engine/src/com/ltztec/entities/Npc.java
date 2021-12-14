@@ -1,7 +1,6 @@
 package com.ltztec.entities;
 
-import java.awt.Color;
-import java.awt.Font;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -23,12 +22,12 @@ public class Npc extends Entity	{
 	public Npc(int x, int y, int width, int height, BufferedImage sprite) {
 		super(x, y, width, height, sprite);
 		frases[0] = "Oii, Seja muito bem-vindo(a) ao meu jogo!  ";
-		frases[1] = "Você tem que destruir os inimigos!  ";
-		frases[2] = "Para isso você tem que...  ";
-		frases[3] = "pegar a arma e as munições...  ";
-		frases[4] = "para atirar aperte espaço...  ";
-		frases[5] = "Quando você derrota todos os inimigos...  ";
-		frases[6] = "você passa de fase...  ";
+		frases[1] = "Vocï¿½ tem que destruir os inimigos!  ";
+		frases[2] = "Para isso vocï¿½ tem que...  ";
+		frases[3] = "pegar a arma e as muniï¿½ï¿½es...  ";
+		frases[4] = "para atirar aperte espaï¿½o...  ";
+		frases[5] = "Quando vocï¿½ derrota todos os inimigos...  ";
+		frases[6] = "vocï¿½ passa de fase...  ";
 		frases[7] = "Divirta-se!  ";
 		
 	}

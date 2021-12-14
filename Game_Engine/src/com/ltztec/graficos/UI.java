@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import com.ltztec.entities.Npc;
+
 import com.ltztec.main.Game;
 
 public class UI {
@@ -18,7 +18,7 @@ public class UI {
 		
 		g.setColor(Color.white);
 		g.setFont(new Font("Arial", Font.BOLD,8));
-		g.drawString((int)Game.player.life+"/"+Game.player.maxLife, 18, 17);
+		g.drawString((int)Game.player.life+"/"+(int)Game.player.maxLife, 18, 17);
 	
 	
 		if(Game.npc.showMassage == true) {
