@@ -24,7 +24,12 @@ Isso tudo significa que é possível criar um game do zero de maneira mais simpl
   
   Essa é a engine que eu criei do zero!
   <br><br>
-  Para jogar baixe o aquivivo e execute - <a href="https://github.com/zallih/Game_Engine_A/blob/main/Game_Engine.jar?raw=true">Clique aqui </a>
+  Para jogar baixe um dos aquivivo e execute:
+  
+  Para baixar o arquivo jar - <a href="https://github.com/zallih/Game_Engine_A/blob/main/Game_Engine.jar?raw=true">Clique aqui </a>
+  
+  Para baixar o arquivo exe - <a href="https://github.com/zallih/Game_Engine_A/blob/main/Game_Engine.exe?raw=true">Clique aqui </a>
+  
   <br>
   OBS - Pode aparecer que irá danificar seu aprelho, porem é completamente seguro! Caso queira conferir o código fonte <a href="https://github.com/zallih/Game_Engine_A/tree/main/Game_Engine"> Clique aqui </a>
   
