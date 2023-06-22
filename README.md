@@ -50,6 +50,6 @@ Isso tudo significa que é possível criar um game do zero de maneira mais simpl
   Atirar - Espaço
 </div>
 
-  <img align="right" alt="zallih" width="120" src="https://cdn.discordapp.com/attachments/882354770709479427/885547375156944906/my-octocat-1631200526625.png">
+  <img align="right" alt="zallih" width="150" src="https://cdn.discordapp.com/attachments/1109120423297294356/1115676185888817182/octocat-1686068325751.png">
 
  <p align="middle">  Essa engine possui o algoritimo *A</p>
