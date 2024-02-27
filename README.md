@@ -1,7 +1,7 @@
 # 🎮 Game_Engine_*A
   
 <div style="display: inline_block"><br>
-  <img align="right" alt="zallih" width="150" src="https://media.discordapp.net/attachments/783761333358166056/872618413040730133/WhatsApp_Image_2021-08-04_at_19.42.37.jpeg?width=370&height=370">
+  <img align="right" alt="zallih" width="110" src="https://cdn.discordapp.com/attachments/1128416328215167096/1157425285344534678/download20230905181423.png?ex=65eb7fcb&is=65d90acb&hm=fa8e5ecfad17ea5a07b2020e5360c14e4d9ade83c4488bcaf1adf0dd8b58a12f&">
   <img align="center" alt="zallih-JAVA" height="40" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
   Linguagem utilizada: <a href="https://www.java.com/">JAVA</a><br><br>
 </div>
@@ -15,23 +15,11 @@ Ela inclui motor gráfico para renderizar gráficos em 2D ou 3D, motor de físic
 Isso tudo significa que é possível criar um game do zero de maneira mais simples e replicar vários estilos jogos com mais facilidade, como um FPS ou um jogo de plataforma.
 </div>
 
-  <p align="middle">
-  <img width="200" alt="QuebraDeLinha" src="https://media.discordapp.net/attachments/783761333358166056/875852044928425984/divider-2461548_640.png">
-  </p>
-
 <div>
   <h2>Sobre o jogo</h2>
   
   Essa é a engine que eu criei do zero!
   <br><br>
-  Para jogar baixe um dos aquivivo e execute:
-  
-  Para baixar o arquivo jar - <a href="https://github.com/zallih/Game_Engine_A/blob/main/Game_Engine.jar?raw=true">Clique aqui </a>
-  
-  Para baixar o arquivo exe - <a href="https://github.com/zallih/Game_Engine_A/blob/main/Game_Engine.exe?raw=true">Clique aqui </a>
-  
-  <br>
-  OBS - Pode aparecer que irá danificar seu aprelho, porem é completamente seguro! Caso queira conferir o código fonte <a href="https://github.com/zallih/Game_Engine_A/tree/main/Game_Engine"> Clique aqui </a>
   
   <h3>Controles:</h3>
   
@@ -50,6 +38,6 @@ Isso tudo significa que é possível criar um game do zero de maneira mais simpl
   Atirar - Espaço
 </div>
 
-  <img align="right" alt="zallih" width="150" src="https://cdn.discordapp.com/attachments/1109120423297294356/1115676185888817182/octocat-1686068325751.png">
+  <img align="right" alt="zallih" width="150" src="https://cdn.discordapp.com/attachments/1128416328215167096/1157426294619918428/octocat-1696022322086.png?ex=65eb80bc&is=65d90bbc&hm=b83857b7109779a00ebd6efaca93ed0e1443f7431d229fd4692239daecdef55a&">
 
  <p align="middle">  Essa engine possui o algoritimo *A</p>
