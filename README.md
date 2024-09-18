@@ -1,7 +1,7 @@
 # 🎮 Game_Engine_*A
   
 <div style="display: inline_block"><br>
-  <img align="right" alt="zallih" width="110" src="https://cdn.discordapp.com/attachments/1128416328215167096/1157425285344534678/download20230905181423.png?ex=65eb7fcb&is=65d90acb&hm=fa8e5ecfad17ea5a07b2020e5360c14e4d9ade83c4488bcaf1adf0dd8b58a12f&">
+  <img align="right" alt="zallih" width="110" src="https://cdn.discordapp.com/attachments/1128416328215167096/1157425285344534678/download20230905181423.png?ex=66ebeb8b&is=66ea9a0b&hm=a125113e1e0e5b130bd98fce76dba8edd2c83f38bd40616fb777c1f5598aa788&">
   <img align="center" alt="zallih-JAVA" height="40" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
   Linguagem utilizada: <a href="https://www.java.com/">JAVA</a><br><br>
 </div>
