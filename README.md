@@ -38,6 +38,4 @@ Isso tudo significa que é possível criar um game do zero de maneira mais simpl
   Atirar - Espaço
 </div>
 
-  <img align="right" alt="zallih" width="150" src="https://cdn.discordapp.com/attachments/1128416328215167096/1157426294619918428/octocat-1696022322086.png?ex=65eb80bc&is=65d90bbc&hm=b83857b7109779a00ebd6efaca93ed0e1443f7431d229fd4692239daecdef55a&">
-
  <p align="middle">  Essa engine possui o algoritimo *A</p>
